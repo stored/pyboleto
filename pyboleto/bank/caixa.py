@@ -110,7 +110,7 @@ class BoletoCaixa(BoletoData):
         return "%s %s %s %s %s" % (campo1, campo2, campo3, campo4, campo5)
 
     def format_nosso_numero(self):
-        return self._nosso_numero + '-' + str(self.dv_nosso_numero)
+        return self.nosso_numero + '-' + str(self.dv_nosso_numero)
 
     @property
     def agencia_conta_cedente(self):
