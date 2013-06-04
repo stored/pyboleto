@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 from ..data import BoletoException
+
+
 BANCOS_IMPLEMENTADOS = {
     '001': 'bancodobrasil.BoletoBB',
+    '033': 'santander.BoletoSantander',
     '041': 'banrisul.BoletoBanrisul',
     '237': 'bradesco.BoletoBradesco',
     '104': 'caixa.BoletoCaixa',
