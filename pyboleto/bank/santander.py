@@ -53,11 +53,11 @@ class BoletoSantander(BoletoData):
     @property
     def campo_livre(self):
         content = "".join([
-                           '9',
-                           self.conta_cedente,
-                           self.nosso_numero,
-                           self._dv_nosso_numero(),
-                           self.ios,
-                           self.carteira,
-                           ])
-        return content
+            '9',
+            self.conta_cedente,
+            self.nosso_numero,
+            self._dv_nosso_numero(),
+            self.ios,
+            self.carteira,
+        ])
+        return str(content)

@@ -73,8 +73,11 @@ class BoletoCaixa(BoletoData):
 
     @property
     def campo_livre(self):
-        num = '%7s%3s%1s%3s%1s%9s' % (
-            self.conta_cedente.replace('-', '')[-7:],
+        v = self.conta_cedente.split('-')
+        conta_cedente = v[0][-6:]
+        num = '%6s%1s%3s%1s%3s%1s%9s' % (
+            conta_cedente,
+            str(self.modulo11(conta_cedente)),
             self.nosso_numero[3:6],
             self.nosso_numero[0],
             self.nosso_numero[6:9],
@@ -115,5 +118,6 @@ class BoletoCaixa(BoletoData):
     @property
     def agencia_conta_cedente(self):
         v = self.conta_cedente.split('-')
-        v[0] = v[0][-6:]
-        return "%s/%s" % (self.agencia_cedente, '-'.join(v))
+        conta_cedente = v[0][-6:]
+        dv_conta_cedente = self.modulo11(conta_cedente)
+        return "%s/%s-%s" % (self.agencia_cedente, conta_cedente, dv_conta_cedente)

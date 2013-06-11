@@ -96,4 +96,4 @@ class BoletoBB(BoletoData):
                                         self.nosso_numero,
                                         '21'  # numero do serviço
                                         )
-        return content
+        return str(content)

@@ -172,6 +172,34 @@ class BoletoData(object):
         self._valor = None
         self._valor_documento = None
 
+    @staticmethod
+    def formata_numero(numero, tamanho):
+        numero = str(numero)
+        if len(numero) > tamanho:
+            raise BoletoException(u'Tamanho em caracteres do número está maior que o permitido')
+        return numero.zfill(tamanho)
+
+    @staticmethod
+    def formata_texto(texto, tamanho):
+        if len(texto) > tamanho:
+            raise BoletoException(u'Tamanho em caracteres do texto está maior que o permitido')
+        return texto.ljust(tamanho)
+
+    def formata_valor(self, nfloat, tamanho):
+        try:
+            txt = nfloat.replace('.', '')
+            txt = self.formata_numero(txt, tamanho)
+            return txt
+        except AttributeError:
+            pass
+
+    @property
+    def fator_vencimento(self):
+        date_ref = datetime.date(2000, 7, 3)  # Fator = 1000
+        delta = self.data_vencimento - date_ref
+        fator = delta.days + 1000
+        return fator
+
     @property
     def barcode(self):
         """Essa função sempre é a mesma para todos os bancos. Então basta
