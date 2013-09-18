@@ -36,6 +36,7 @@ class BoletoPDF(object):
     """
 
     def __init__(self, file_descr, landscape=False):
+        print '==============================='
         self.width = 190 * mm
         self.widthCanhoto = 70 * mm
         self.heightLine = 6.5 * mm
@@ -204,17 +205,17 @@ class BoletoPDF(object):
         # Vertical Lines
         self.pdfCanvas.setLineWidth(1)
         self.__verticalLine(
-            self.width - (30 * mm),
+            self.width - (26 * mm),
             (linhaInicial + 0) * self.heightLine,
             3 * self.heightLine
         )
         self.__verticalLine(
-            self.width - (30 * mm) - (35 * mm),
+            self.width - (26 * mm) - (33 * mm),
             (linhaInicial + 1) * self.heightLine,
             2 * self.heightLine
         )
         self.__verticalLine(
-            self.width - (30 * mm) - (35 * mm) - (40 * mm),
+            self.width - (26 * mm) - (33 * mm) - (34 * mm),
             (linhaInicial + 1) * self.heightLine,
             2 * self.heightLine
         )
@@ -267,17 +268,17 @@ class BoletoPDF(object):
             'Cedente'
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) - (40 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) - (34 * mm) + self.space,
             (((linhaInicial + 2) * self.heightLine)) + self.deltaTitle,
             'Agência/Código Cedente'
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) + self.space,
             (((linhaInicial + 2) * self.heightLine)) + self.deltaTitle,
             'CPF/CNPJ Cedente'
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) + self.space,
+            self.width - (26 * mm) + self.space,
             (((linhaInicial + 2) * self.heightLine)) + self.deltaTitle,
             'Vencimento'
         )
@@ -287,15 +288,15 @@ class BoletoPDF(object):
             (((linhaInicial + 1) * self.heightLine)) + self.deltaTitle,
             'Sacado')
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) - (40 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) - (34 * mm) + self.space,
             (((linhaInicial + 1) * self.heightLine)) + self.deltaTitle,
             'Nosso Número')
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) + self.space,
             (((linhaInicial + 1) * self.heightLine)) + self.deltaTitle,
             'N. do documento')
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) + self.space,
+            self.width - (26 * mm) + self.space,
             (((linhaInicial + 1) * self.heightLine)) + self.deltaTitle,
             'Data Documento'
         )
@@ -306,7 +307,7 @@ class BoletoPDF(object):
             'Endereço Cedente'
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) + self.space,
+            self.width - (26 * mm) + self.space,
             (((linhaInicial + 0) * self.heightLine)) + self.deltaTitle,
             'Valor Documento'
         )
@@ -328,17 +329,17 @@ class BoletoPDF(object):
             boletoDados.cedente
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) - (40 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) - (34 * mm) + self.space,
             (((linhaInicial + 2) * self.heightLine)) + self.space,
             boletoDados.agencia_conta_cedente
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) + self.space,
             (((linhaInicial + 2) * self.heightLine)) + self.space,
             boletoDados.cedente_documento
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) + self.space,
+            self.width - (26 * mm) + self.space,
             (((linhaInicial + 2) * self.heightLine)) + self.space,
             boletoDados.data_vencimento.strftime('%d/%m/%Y')
         )
@@ -357,17 +358,17 @@ class BoletoPDF(object):
             sacado0
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) - (40 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) - (34 * mm) + self.space,
             (((linhaInicial + 1) * self.heightLine)) + self.space,
             boletoDados.format_nosso_numero()
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) - (35 * mm) + self.space,
+            self.width - (26 * mm) - (33 * mm) + self.space,
             (((linhaInicial + 1) * self.heightLine)) + self.space,
             boletoDados.numero_documento
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) + self.space,
+            self.width - (26 * mm) + self.space,
             (((linhaInicial + 1) * self.heightLine)) + self.space,
             boletoDados.data_documento.strftime('%d/%m/%Y')
         )
@@ -382,7 +383,7 @@ class BoletoPDF(object):
             boletoDados.cedente_endereco
         )
         self.pdfCanvas.drawString(
-            self.width - (30 * mm) + self.space,
+            self.width - (26 * mm) + self.space,
             (((linhaInicial + 0) * self.heightLine)) + self.space,
             valorDocumento
         )
